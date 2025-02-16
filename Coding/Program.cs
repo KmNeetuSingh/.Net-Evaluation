@@ -98,54 +98,54 @@ public class Solution
     }
 }
 
-class Program
-{
-    static void Main(string[] args)
-    {
-        Solution solution = new Solution();
+// // class Program
+// {
+//     static void Main(string[] args)
+//     {
+//         Solution solution = new Solution();
 
-        // 1. Test Kadane's Algorithm (Maximum Subarray Sum)
-        int[] nums = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
-        int maxSum = solution.MaxSub(nums);
-        Console.WriteLine("Maximum Subarray Sum: " + maxSum);
+//         // 1. Test Kadane's Algorithm (Maximum Subarray Sum)
+//         int[] nums = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
+//         int maxSum = solution.MaxSub(nums);
+//         Console.WriteLine("Maximum Subarray Sum: " + maxSum);
 
-        // 2. Test Intersection and Union of Arrays
-        int[] arr1 = { 1, 2, 2, 1 };
-        int[] arr2 = { 2, 2 };
-        var (intersection, union) = solution.FindIntersectionAndUnion(arr1, arr2);
-        Console.WriteLine("Intersection: " + string.Join(", ", intersection));
-        Console.WriteLine("Union: " + string.Join(", ", union));
+//         // 2. Test Intersection and Union of Arrays
+//         int[] arr1 = { 1, 2, 2, 1 };
+//         int[] arr2 = { 2, 2 };
+//         var (intersection, union) = solution.FindIntersectionAndUnion(arr1, arr2);
+//         Console.WriteLine("Intersection: " + string.Join(", ", intersection));
+//         Console.WriteLine("Union: " + string.Join(", ", union));
 
-        // 3. Test Sparse Matrix Multiplication
-        int[,] matrix1 = { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } };
-        int[,] matrix2 = { { 1, 0 }, { 0, 1 }, { 1, 1 } };
-        int[,] result = solution.SparseMatrixMultiplication(matrix1, matrix2);
-        Console.WriteLine("Sparse Matrix Multiplication Result:");
-        for (int i = 0; i < result.GetLength(0); i++)
-        {
-            for (int j = 0; j < result.GetLength(1); j++)
-            {
-                Console.Write(result[i, j] + " ");
-            }
-            Console.WriteLine();
-        }
+//         // 3. Test Sparse Matrix Multiplication
+//         int[,] matrix1 = { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } };
+//         int[,] matrix2 = { { 1, 0 }, { 0, 1 }, { 1, 1 } };
+//         int[,] result = solution.SparseMatrixMultiplication(matrix1, matrix2);
+//         Console.WriteLine("Sparse Matrix Multiplication Result:");
+//         for (int i = 0; i < result.GetLength(0); i++)
+//         {
+//             for (int j = 0; j < result.GetLength(1); j++)
+//             {
+//                 Console.Write(result[i, j] + " ");
+//             }
+//             Console.WriteLine();
+//         }
 
-        // 4. Test First Missing Positive Integer
-        int[] unsortedArray = { 3, 4, -1, 1 };
-        int firstMissingPositive = solution.FirstMissingPositive(unsortedArray);
-        Console.WriteLine("First Missing Positive: " + firstMissingPositive);
+//         // 4. Test First Missing Positive Integer
+//         int[] unsortedArray = { 3, 4, -1, 1 };
+//         int firstMissingPositive = solution.FirstMissingPositive(unsortedArray);
+//         Console.WriteLine("First Missing Positive: " + firstMissingPositive);
 
-        // 5. Test Rotating a 2D Matrix 90 Degrees Clockwise
-        int[,] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
-        solution.RotateMatrix90DegreesClockwise(matrix);
-        Console.WriteLine("Rotated Matrix 90 Degrees Clockwise:");
-        for (int i = 0; i < matrix.GetLength(0); i++)
-        {
-            for (int j = 0; j < matrix.GetLength(1); j++)
-            {
-                Console.Write(matrix[i, j] + " ");
-            }
-            Console.WriteLine();
-        }
-    }
-}
+//         // 5. Test Rotating a 2D Matrix 90 Degrees Clockwise
+//         int[,] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+//         solution.RotateMatrix90DegreesClockwise(matrix);
+//         Console.WriteLine("Rotated Matrix 90 Degrees Clockwise:");
+//         for (int i = 0; i < matrix.GetLength(0); i++)
+//         {
+//             for (int j = 0; j < matrix.GetLength(1); j++)
+//             {
+//                 Console.Write(matrix[i, j] + " ");
+//             }
+//             Console.WriteLine();
+//         }
+//     }
+// }
