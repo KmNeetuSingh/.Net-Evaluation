@@ -38,34 +38,34 @@ public class Physics2D : PhysicsEngine { public override void Apply() => Console
 public class Physics3D : PhysicsEngine { public override void Apply() => Console.WriteLine("Applying 3D Physics..."); }
 
 // Main Program
-class Program
-{
-    static void Main()
-    {
-        // ExprEval Test
-        var n1 = new ExprEval(10);
-        var n2 = new ExprEval(5);
-        Console.WriteLine("Add: " + (n1 + n2));
-        Console.WriteLine("Multiply: " + (n1 * n2));
+// class Program
+// {
+//     static void Main()
+//     {
+//         // ExprEval Test
+//         var n1 = new ExprEval(10);
+//         var n2 = new ExprEval(5);
+//         Console.WriteLine("Add: " + (n1 + n2));
+//         Console.WriteLine("Multiply: " + (n1 * n2));
 
-        // DBConnector Test
-        new SQL().Connect();
-        new MongoDB().Connect();
-        new Firebase().Connect();
+//         // DBConnector Test
+//         new SQL().Connect();
+//         new MongoDB().Connect();
+//         new Firebase().Connect();
 
-        // Compressor Test
-        var comp = new Compressor();
-        comp.Compress("text data");
-        comp.Compress(new byte[10]);
-        comp.Compress("video.mp4", 720);
+//         // Compressor Test
+//         var comp = new Compressor();
+//         comp.Compress("text data");
+//         comp.Compress(new byte[10]);
+//         comp.Compress("video.mp4", 720);
 
-        // AIModel Test
-        new BasicAI().Train();
-        new NeuralNet().Train();
-        new DeepLearning().Train();
+//         // AIModel Test
+//         new BasicAI().Train();
+//         new NeuralNet().Train();
+//         new DeepLearning().Train();
 
-        // PhysicsEngine Test
-        new Physics2D().Apply();
-        new Physics3D().Apply();
-    }
-}
+//         // PhysicsEngine Test
+//         new Physics2D().Apply();
+//         new Physics3D().Apply();
+//     }
+// }
