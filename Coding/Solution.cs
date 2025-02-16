@@ -237,61 +237,61 @@ public class StockPortfolio
     }
 }
 
-class Program
-{
-    static void Main()
-    {
-        // StockPortfolio Test
-        Console.WriteLine("StockPortfolio Test:");
-        StockPortfolio portfolio = new StockPortfolio();
-        portfolio.AddStock("AAPL", 10, 150.0);
-        portfolio.AddStock("GOOG", 5, 2800.0);
-        portfolio.AddStock("TSLA", 3, 700.0);
+// class Program
+// {
+//     static void Main()
+//     {
+//         // StockPortfolio Test
+//         Console.WriteLine("StockPortfolio Test:");
+//         StockPortfolio portfolio = new StockPortfolio();
+//         portfolio.AddStock("AAPL", 10, 150.0);
+//         portfolio.AddStock("GOOG", 5, 2800.0);
+//         portfolio.AddStock("TSLA", 3, 700.0);
 
-        // Display the current portfolio
-        portfolio.DisplayPortfolio();
+//         // Display the current portfolio
+//         portfolio.DisplayPortfolio();
 
-        // Calculate the total portfolio value
-        double totalValue = portfolio.CalculateTotalPortfolioValue();
-        Console.WriteLine($"\nTotal Portfolio Value: {totalValue}");
+//         // Calculate the total portfolio value
+//         double totalValue = portfolio.CalculateTotalPortfolioValue();
+//         Console.WriteLine($"\nTotal Portfolio Value: {totalValue}");
 
-        // Remove a stock from the portfolio
-        portfolio.RemoveStock("GOOG");
+//         // Remove a stock from the portfolio
+//         portfolio.RemoveStock("GOOG");
 
-        // Display the updated portfolio
-        portfolio.DisplayPortfolio();
+//         // Display the updated portfolio
+//         portfolio.DisplayPortfolio();
 
-        // Calculate the updated total portfolio value
-        totalValue = portfolio.CalculateTotalPortfolioValue();
-        Console.WriteLine($"\nUpdated Total Portfolio Value: {totalValue}");
+//         // Calculate the updated total portfolio value
+//         totalValue = portfolio.CalculateTotalPortfolioValue();
+//         Console.WriteLine($"\nUpdated Total Portfolio Value: {totalValue}");
 
-        // SmartHomeSystem Test
-        Console.WriteLine("\nSmartHomeSystem Test:");
-        SmartHomeSystem homeSystem = new SmartHomeSystem();
-        homeSystem.AddDevice("Light");
-        homeSystem.AddDevice("Fan");
-        homeSystem.RemoveDevice("Air Conditioner");
-        homeSystem.TurnOnOffDevices(true);
+//         // SmartHomeSystem Test
+//         Console.WriteLine("\nSmartHomeSystem Test:");
+//         SmartHomeSystem homeSystem = new SmartHomeSystem();
+//         homeSystem.AddDevice("Light");
+//         homeSystem.AddDevice("Fan");
+//         homeSystem.RemoveDevice("Air Conditioner");
+//         homeSystem.TurnOnOffDevices(true);
 
-        // TaskScheduler Test
-        Console.WriteLine("\nTaskScheduler Test:");
-        TaskScheduler scheduler = new TaskScheduler();
-        scheduler.AddTask("Task 1", 2);
-        scheduler.AddTask("Task 2", 1);
-        scheduler.ExecuteTasks();
+//         // TaskScheduler Test
+//         Console.WriteLine("\nTaskScheduler Test:");
+//         TaskScheduler scheduler = new TaskScheduler();
+//         scheduler.AddTask("Task 1", 2);
+//         scheduler.AddTask("Task 2", 1);
+//         scheduler.ExecuteTasks();
 
-        // BlockchainTransaction Test
-        Console.WriteLine("\nBlockchainTransaction Test:");
-        BlockchainTransaction transaction = new BlockchainTransaction("Alice", "Bob", 100);
-        Console.WriteLine($"Transaction ID: {transaction.TransactionId}");
-        Console.WriteLine($"Is transaction valid? {transaction.ValidateTransaction()}");
+//         // BlockchainTransaction Test
+//         Console.WriteLine("\nBlockchainTransaction Test:");
+//         BlockchainTransaction transaction = new BlockchainTransaction("Alice", "Bob", 100);
+//         Console.WriteLine($"Transaction ID: {transaction.TransactionId}");
+//         Console.WriteLine($"Is transaction valid? {transaction.ValidateTransaction()}");
 
-        // MusicPlaylist Test
-        Console.WriteLine("\nMusicPlaylist Test:");
-        MusicPlaylist playlist = new MusicPlaylist();
-        playlist.AddSong("Song 1");
-        playlist.AddSong("Song 2");
-        playlist.RemoveSong("Song 1");
-        playlist.PlaySongs();
-    }
-}
+//         // MusicPlaylist Test
+//         Console.WriteLine("\nMusicPlaylist Test:");
+//         MusicPlaylist playlist = new MusicPlaylist();
+//         playlist.AddSong("Song 1");
+//         playlist.AddSong("Song 2");
+//         playlist.RemoveSong("Song 1");
+//         playlist.PlaySongs();
+//     }
+// }
