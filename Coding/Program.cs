@@ -1,150 +1,120 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class Solution
+public class Sol
 {
-    // 1. Method to find the maximum subarray sum using Kadane's Algorithm
+    // 1. Kadane's Algorithm for Max Subarray Sum
     public int MaxSub(int[] nums)
     {
-        int maxSoFar = nums[0];
-        int maxEndingHere = nums[0];
-
+        int max = nums[0], curr = nums[0];
         for (int i = 1; i < nums.Length; i++)
         {
-            maxEndingHere = Math.Max(nums[i], maxEndingHere + nums[i]);
-            maxSoFar = Math.Max(maxSoFar, maxEndingHere);
+            curr = Math.Max(nums[i], curr + nums[i]);
+            max = Math.Max(max, curr);
         }
-
-        return maxSoFar;
+        return max;
     }
 
-    // 2. Method to find the intersection and union of two unsorted arrays
-    public (List<int> intersection, List<int> union) FindIntersectionAndUnion(int[] arr1, int[] arr2)
+    // 2. Intersection and Union of Two Arrays
+    public (List<int> inter, List<int> uni) InterUnion(int[] a1, int[] a2)
     {
-        HashSet<int> set1 = new HashSet<int>(arr1);
-        HashSet<int> set2 = new HashSet<int>(arr2);
+        var set1 = new HashSet<int>(a1);
+        var set2 = new HashSet<int>(a2);
+        var inter = new List<int>();
+        var uni = new List<int>(set1);
 
-        List<int> intersection = new List<int>();
-        List<int> union = new List<int>(set1);
-
-        foreach (var item in set2)
+        foreach (var x in set2)
         {
-            if (set1.Contains(item))
-                intersection.Add(item);
-            else
-                union.Add(item);
+            if (set1.Contains(x)) inter.Add(x);
+            else uni.Add(x);
         }
 
-        return (intersection, union);
+        return (inter, uni);
     }
 
-    // 3. Sparse Matrix Multiplication using a 2D array
-    public int[,] SparseMatrixMultiplication(int[,] matrix1, int[,] matrix2)
+    // 3. Sparse Matrix Multiplication
+    public int[,] MatMul(int[,] m1, int[,] m2)
     {
-        int rows = matrix1.GetLength(0);
-        int cols = matrix2.GetLength(1);
-        int common = matrix1.GetLength(1);
+        int r = m1.GetLength(0), c = m2.GetLength(1), com = m1.GetLength(1);
+        var res = new int[r, c];
 
-        int[,] result = new int[rows, cols];
+        for (int i = 0; i < r; i++)
+            for (int j = 0; j < c; j++)
+                for (int k = 0; k < com; k++)
+                    res[i, j] += m1[i, k] * m2[k, j];
 
-        for (int i = 0; i < rows; i++)
+        return res;
+    }
+
+    // 4. First Missing Positive Integer
+    public int FirstMissing(int[] nums)
+    {
+        var set = new HashSet<int>(nums);
+        int i = 1;
+        while (set.Contains(i)) i++;
+        return i;
+    }
+
+    // 5. Rotate Matrix 90 Degrees Clockwise
+    public void Rotate90(int[,] mat)
+    {
+        int n = mat.GetLength(0);
+        for (int l = 0; l < n / 2; l++)
         {
-            for (int j = 0; j < cols; j++)
+            int f = l, lst = n - l - 1;
+            for (int i = f; i < lst; i++)
             {
-                for (int k = 0; k < common; k++)
-                {
-                    result[i, j] += matrix1[i, k] * matrix2[k, j];
-                }
-            }
-        }
-
-        return result;
-    }
-
-    // 4. Method to find the first missing positive integer in an unsorted array
-    public int FirstMissingPositive(int[] nums)
-    {
-        HashSet<int> numSet = new HashSet<int>(nums);
-        int small = 1;
-
-        while (numSet.Contains(small))
-        {
-            small++;
-        }
-
-        return small;
-    }
-
-    // 5. Method to rotate a 2D matrix 90 degrees clockwise in place
-    public void RotateMatrix90DegreesClockwise(int[,] matrix)
-    {
-        int n = matrix.GetLength(0);
-        for (int layer = 0; layer < n / 2; layer++)
-        {
-            int first = layer;
-            int last = n - layer - 1;
-
-            for (int i = first; i < last; i++)
-            {
-                int offset = i - first;
-                int top = matrix[first, i];
-
-                matrix[first, i] = matrix[last - offset, first];
-                matrix[last - offset, first] = matrix[last, last - offset];
-                matrix[last, last - offset] = matrix[i, last];
-                matrix[i, last] = top;
+                int off = i - f;
+                int tmp = mat[f, i];
+                mat[f, i] = mat[lst - off, f];
+                mat[lst - off, f] = mat[lst, lst - off];
+                mat[lst, lst - off] = mat[i, lst];
+                mat[i, lst] = tmp;
             }
         }
     }
 }
 
-// // class Program
+// class Program
 // {
 //     static void Main(string[] args)
 //     {
-//         Solution solution = new Solution();
+//         Sol s = new Sol();
 
-//         // 1. Test Kadane's Algorithm (Maximum Subarray Sum)
+//         // 1. Test Max Subarray Sum
 //         int[] nums = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
-//         int maxSum = solution.MaxSub(nums);
-//         Console.WriteLine("Maximum Subarray Sum: " + maxSum);
+//         Console.WriteLine("Max Subarray Sum: " + s.MaxSub(nums));
 
-//         // 2. Test Intersection and Union of Arrays
-//         int[] arr1 = { 1, 2, 2, 1 };
-//         int[] arr2 = { 2, 2 };
-//         var (intersection, union) = solution.FindIntersectionAndUnion(arr1, arr2);
-//         Console.WriteLine("Intersection: " + string.Join(", ", intersection));
-//         Console.WriteLine("Union: " + string.Join(", ", union));
+//         // 2. Test Intersection and Union
+//         int[] a1 = { 1, 2, 2, 1 }, a2 = { 2, 2 };
+//         var (inter, uni) = s.InterUnion(a1, a2);
+//         Console.WriteLine("Intersection: " + string.Join(", ", inter));
+//         Console.WriteLine("Union: " + string.Join(", ", uni));
 
 //         // 3. Test Sparse Matrix Multiplication
-//         int[,] matrix1 = { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } };
-//         int[,] matrix2 = { { 1, 0 }, { 0, 1 }, { 1, 1 } };
-//         int[,] result = solution.SparseMatrixMultiplication(matrix1, matrix2);
-//         Console.WriteLine("Sparse Matrix Multiplication Result:");
-//         for (int i = 0; i < result.GetLength(0); i++)
+//         int[,] m1 = { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } };
+//         int[,] m2 = { { 1, 0 }, { 0, 1 }, { 1, 1 } };
+//         var res = s.MatMul(m1, m2);
+//         Console.WriteLine("Matrix Multiplication Result:");
+//         for (int i = 0; i < res.GetLength(0); i++)
 //         {
-//             for (int j = 0; j < result.GetLength(1); j++)
-//             {
-//                 Console.Write(result[i, j] + " ");
-//             }
+//             for (int j = 0; j < res.GetLength(1); j++)
+//                 Console.Write(res[i, j] + " ");
 //             Console.WriteLine();
 //         }
 
-//         // 4. Test First Missing Positive Integer
-//         int[] unsortedArray = { 3, 4, -1, 1 };
-//         int firstMissingPositive = solution.FirstMissingPositive(unsortedArray);
-//         Console.WriteLine("First Missing Positive: " + firstMissingPositive);
+//         // 4. Test First Missing Positive
+//         int[] arr = { 3, 4, -1, 1 };
+//         Console.WriteLine("First Missing Positive: " + s.FirstMissing(arr));
 
-//         // 5. Test Rotating a 2D Matrix 90 Degrees Clockwise
-//         int[,] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
-//         solution.RotateMatrix90DegreesClockwise(matrix);
-//         Console.WriteLine("Rotated Matrix 90 Degrees Clockwise:");
-//         for (int i = 0; i < matrix.GetLength(0); i++)
+//         // 5. Test Rotate Matrix 90 Degrees
+//         int[,] mat = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+//         s.Rotate90(mat);
+//         Console.WriteLine("Rotated Matrix:");
+//         for (int i = 0; i < mat.GetLength(0); i++)
 //         {
-//             for (int j = 0; j < matrix.GetLength(1); j++)
-//             {
-//                 Console.Write(matrix[i, j] + " ");
-//             }
+//             for (int j = 0; j < mat.GetLength(1); j++)
+//                 Console.Write(mat[i, j] + " ");
 //             Console.WriteLine();
 //         }
 //     }
